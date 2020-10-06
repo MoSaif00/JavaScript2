@@ -14,6 +14,12 @@
 
 function hijackGoogleLogo() {
   // your code goes in here
+  const googleLogo = document.getElementById('hplogo'); // google logo id 
+  googleLogo.src = 'https://www.hackyourfuture.dk/static/logo-dark.svg';
+  googleLogo.srcset = 'https://www.hackyourfuture.dk/static/logo-dark.svg';
+  document.body.appendChild(googleLogo);
+  googleLogo.style.paddingLeft='40%';
+  googleLogo.style.paddingTop='109px';
 }
 
 hijackGoogleLogo();
