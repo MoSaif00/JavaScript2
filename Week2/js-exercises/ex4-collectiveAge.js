@@ -8,10 +8,10 @@
  Avoid using for loop or forEach.
  */
 
-function collectiveAge(people) {
+function collectiveMembers(people) {
   // return the sum of age for all the people
+  return people.map((teamAges) => teamAges.age ).reduce((sum,cValue)=> sum + cValue,0);
 }
-
 const hackYourFutureMembers = [{
     name: 'Wouter',
     age: 33
