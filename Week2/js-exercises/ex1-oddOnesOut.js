@@ -21,8 +21,9 @@
 
 /* Using the map and filter functions, rewrite the doubleEvenNumbers function. */
 function doubleEvenNumbers(numbers){
-  const newArray = numbers.filter((number) => number % 2 === 0 )
-                          .map((number)=> number * 2);
+  const newArray = numbers
+        .filter((number) => number % 2 === 0 )
+        .map((number)=> number * 2);
                           
   return newArray;
 }
