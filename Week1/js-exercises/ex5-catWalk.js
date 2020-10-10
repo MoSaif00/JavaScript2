@@ -13,10 +13,13 @@
 */
 'use strict';
 const catImage = document.querySelector("img");//Create a variable to store a reference to the img.
+catImage.style.position='absolute';
+catImage.style.top='100px';
 catImage.style.left = '0px'; //Change the style of the img to have a "left" of "0px", so that it starts at the left hand of the screens.
 let catPosition = 0;
 let danceCat = true;
-let interval = setInterval(catWalk, 50);//Call that function every 50 milliseconds.Your cat should now be moving across the screen from left to right.Hurrah!
+const moveTime = 50;
+let interval = setInterval(catWalk, moveTime);//Call that function every 50 milliseconds.Your cat should now be moving across the screen from left to right.Hurrah!
 
 function catWalk() {
   catPosition += 10;
@@ -28,7 +31,7 @@ function catWalk() {
     setTimeout(() => {
       catImage.src = "http://www.anniemation.com/clip_art/images/cat-walk.gif";
       danceCat =false;
-      interval = setInterval(catWalk, 50);
+      interval = setInterval(catWalk, moveTime);
     }, 5000); // set time for 5 seconds then the cat start walking 
   }
   if (catPosition > window.innerWidth ) {
