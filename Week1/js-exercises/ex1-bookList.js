@@ -22,20 +22,21 @@ function createBookList(books) {
   const itemList = document.createElement('ul'); //Use a `<ul>`  and `<li>` to display the books.
 
   //Iterate through the array of books.
-  for (let i=0 ; i<books.length; i++){
+  // for (let i=0 ; i<books.length; i++){
+    for ( const item of books){
     const liTag = document.createElement('li');//Use a `<ul>`  and `<li>` to display the books.
     itemList.appendChild(liTag);
     const pTag= document.createElement('p');
-    pTag.innerText = `${books[i].title} - ${books[i].author}`;//For each book, create a `<p>` element with the book title and author and append it to the page.
+    pTag.innerText = `${item.title} - ${item.author}`;//For each book, create a `<p>` element with the book title and author and append it to the page.
     liTag.appendChild(pTag); 
     const imgTag = document.createElement('img');
-    imgTag.src = books[i].bImage; //Add an `<img>` to each book that links to a URL 
+    imgTag.src = item.bImage; //Add an `<img>` to each book that links to a URL 
     liTag.appendChild(imgTag);
 
     /* style */
     itemList.style.display='flex'; 
     liTag.style.width='30%';
-    liTag.style.margin='10px';
+    liTag.style.justifyContent='space-around';
     pTag.style.textAlign= 'center';
     pTag.style.fontSize='larger';
     pTag.style.padding='10px 20px 10px 20px';
@@ -44,7 +45,7 @@ function createBookList(books) {
     imgTag.style.margin='auto';
     imgTag.style.display='flex';
 
-    if(books[i].alreadyRead === true){
+    if(item.alreadyRead === true){
       liTag.style.backgroundColor='green';
     }else
     {
