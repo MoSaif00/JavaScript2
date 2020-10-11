@@ -18,5 +18,5 @@ function displayCurrentTime() {
   document.getElementById('time').innerText =currentTime;
 }
 
-// setInterval(displayCurrentTime, 1000); 
-setInterval(displayCurrentTime,0); // make the time appear in when you open the page be setting the time of interval for 0
+setInterval(displayCurrentTime,1000); 
+displayCurrentTime();
