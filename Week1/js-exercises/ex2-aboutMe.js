@@ -16,9 +16,9 @@
 const nickName = document.getElementById('nickname');
 const favouritFood = document.getElementById('fav-food');
 const homeTown = document.getElementById('hometown');
-nickName.innerText = " Saif ";
-favouritFood.innerText = " Asian food ";
-homeTown.innerText = " Ibb";
+nickName.innerText = "Saif";
+favouritFood.innerText = "Asian food";
+homeTown.innerText = "Ibb";
 
 //Iterate through each li and change the class to "list-item".
 const liElement=document.querySelectorAll('li');
