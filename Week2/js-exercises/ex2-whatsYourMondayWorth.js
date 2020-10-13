@@ -11,6 +11,7 @@
 
  */
 
+ 'use strict';
 
 function dayWorth(tasks, hourlyRate) {
   // put your code in here, the function does returns a euro formatted string
@@ -21,7 +22,6 @@ function dayWorth(tasks, hourlyRate) {
       
   // return ` € ${findHourlyRate}`;
   return `${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(findHourlyRate)}`;
-  
 }
 
 const mondayTasks = [{
@@ -44,3 +44,4 @@ const mondayTasks = [{
 
 console.log(dayWorth(mondayTasks, 25))
 console.log(dayWorth(mondayTasks, 13.37))
+console.log(dayWorth(mondayTasks, 6.37))

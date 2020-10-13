@@ -19,5 +19,4 @@ function takeOutLemons(basket) {
 }
 
 const fruitBasket = ['Apple', 'Lemon', 'Grapefruit', 'Lemon', 'Banana', 'Watermelon', 'Lemon'];
-
 console.log(takeOutLemons(fruitBasket));

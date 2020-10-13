@@ -28,7 +28,6 @@ function createHTMLList(arr) {
     liElemets.style.listStyle='none';
   });  
   return hobbiesList;
-
 };
 
 const myHobbies = [
