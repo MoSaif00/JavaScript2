@@ -43,8 +43,14 @@ minusTimeLength.addEventListener('click', ()=>{
 
 // function to set time length to output display 
 function setTime(){
-  displayMinutes.innerText= time.getMinutes();
-  displaySeconds.innerText=time.getSeconds();
+  if(defaultMinutes<=9 ){
+    displayMinutes.innerText= '0'+time.getMinutes();
+    displaySeconds.innerText= '0'+time.getSeconds();
+    
+  }else{
+    displayMinutes.innerText= time.getMinutes();
+    displaySeconds.innerText='0'+time.getSeconds();
+  }
 };
 
 // set event listner and play function to be fired when the start button clicked so the count down start timing
@@ -74,6 +80,7 @@ playButton.addEventListener('click', ()=>{
   disableButtons() ; // call disable function to disable all buttons play button is cliked 
   timeUpText.style.visibility='hidden'; 
  });
+ 
  // set event listner and pause function to be fired when the pause button clicked so the count down pause there  
 pauseButton.addEventListener('click',()=>{
   clearInterval(countDown);
