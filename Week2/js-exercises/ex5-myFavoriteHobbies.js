@@ -19,12 +19,13 @@ function createHTMLList(arr) {
   header.style.textDecoration= ' underline ';
   document.body.style.textAlign='center';
 
+  const ulElement = document.createElement('ul'); // add unordered list 
+  document.body.appendChild(ulElement); // append Ul list to body tag 
+
   const hobbiesList = arr.forEach(element => {
-    const ulElement = document.createElement('ul'); // add unordered list 
     const liElemets = document.createElement('li'); // add list item 
     liElemets.innerText = element; // teke the paremeter and push the elements into the list items 
     ulElement.appendChild(liElemets); // append li to Ul
-    document.body.appendChild(ulElement); // append Ul list to body tag 
     liElemets.style.listStyle='none';
   });  
   return hobbiesList;
@@ -39,9 +40,9 @@ const myHobbies = [
 ];
 createHTMLList(myHobbies);
 
-// const mySkills = [
-//   'programming',
-//   'debugging',
-//   'troubleshoting'
-// ];
-// createHTMLList(mySkills);
+const mySkills = [
+  'programming',
+  'debugging',
+  'troubleshoting'
+];
+createHTMLList(mySkills);
