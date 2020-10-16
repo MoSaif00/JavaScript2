@@ -32,17 +32,18 @@ function createHTMLList(arr) {
 };
 
 const myHobbies = [
-  'Meditation',
   'Reading',
   'Programming',
   'Hanging out with friends',
-  'Going to the gym',
+  'playing chess',
+  'cycling',
+  'drinking coffee',
 ];
 createHTMLList(myHobbies);
 
-const mySkills = [
-  'programming',
-  'debugging',
-  'troubleshoting'
-];
-createHTMLList(mySkills);
+// const mySkills = [
+//   'programming',
+//   'debugging',
+//   'troubleshoting'
+// ];
+// createHTMLList(mySkills);
