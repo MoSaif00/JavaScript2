@@ -72,10 +72,11 @@ playButton.addEventListener('click', ()=>{
       displayMinutes.innerText = '00';
       timeUpText.style.visibility='visible';
       timeUpText.style.fontSize='35px';
-      timeUpText.style.color='blue';
+      timeUpText.style.color='white';
       clearInterval(countDown);
       enableButton();
     }
+    
   }, 1000);
   disableButtons() ; // call disable function to disable all buttons play button is cliked 
   timeUpText.style.visibility='hidden'; 
