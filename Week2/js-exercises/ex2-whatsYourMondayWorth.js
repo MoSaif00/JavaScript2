@@ -18,10 +18,9 @@ function dayWorth(tasks, hourlyRate) {
   const findHourlyRate = tasks
         .map((minutes)=> minutes.duration * hourlyRate / 60 )// find the hourly rate for each 60 minutes .
         .reduce((total, cValue )=> total + cValue , 0) // sum up all tasks hourly rate
-        .toFixed(2);
       
   // return ` € ${findHourlyRate}`;
-  return `${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(findHourlyRate)}`;
+  return `${new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(findHourlyRate)}`;
 }
 
 const mondayTasks = [{
