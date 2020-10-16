@@ -12,10 +12,14 @@ does not return anything but removes any duplicate elements from the array.
 
 
 // WRITE YOUR FUNCTION HERE
+function removeDuplicates(array) {
+  return array.splice(0, array.length, ...(new Set(array)))
+}; 
 
 const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
 
 removeDuplicates(letters);
+console.log(letters);
 
 if (letters === ['a', 'b', 'c', 'd', 'e', 'f'])
-  console.log("Hooray!")
+  console.log("Hooray!"); // this condition will always be false . As discussed in slack , this homework file needs to be updated .
