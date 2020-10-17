@@ -18,28 +18,45 @@ const displayMinutes = document.getElementById('minutes');
 const displaySeconds= document.getElementById('seconds');
 const playButton = document.getElementById('start-btn');
 const pauseButton = document.getElementById('pause-btn');
+const resetButton = document.getElementById('reset-btn');
 const timeUpText = document.getElementById('time-up');
 
-let time = new Date();
-let defaultMinutes = 25; 
-sessionLength.innerText = defaultMinutes;// set the length of session 25 minutes by default
-let countDown; // Reference for the countTimeDown function 
+const time = new Date();
+let defaultMinutes = 3;
+let countDown; // Reference for the countTimeDown function
+resetTimer();
 
 // set event listner and add and minuse functions to be fired when the buttons clicked
 addTimeLength.addEventListener('click',()=>{
   sessionLength.innerText = ++defaultMinutes  ;
-  time.setMinutes(defaultMinutes);
-  time.setSeconds(0);
-  setTime();
+  resetTimer();
 }); 
 minusTimeLength.addEventListener('click', ()=>{
   if(defaultMinutes > 1){
     sessionLength.innerText = --defaultMinutes  ;
-    time.setMinutes(defaultMinutes);
-    time.setSeconds(0);
-    setTime();
+    resetTimer();
   }
 });
+function twoDigits(number) {
+  return number <= 9 ? '0' + number : number;
+}
+function showTime() {
+  displayMinutes.innerHTML = twoDigits(time.getMinutes());
+  displaySeconds.innerHTML = twoDigits(time.getSeconds());
+}
+function resetTimer() {
+  time.setMinutes(defaultMinutes);
+  time.setSeconds(0);
+  showTime();
+  sessionLength.innerText = defaultMinutes; // set the length of session 25 minutes by default
+  timeUpText.style.visibility = 'hidden';
+}
+function timesUp() {
+  timeUpText.style.visibility = 'visible';
+  timeUpText.style.fontSize = '35px';
+  timeUpText.style.color = 'white';
+  enableButton();
+}
 
 // function to set time length to output display 
 function setTime(){
@@ -56,27 +73,14 @@ function setTime(){
 // set event listner and play function to be fired when the start button clicked so the count down start timing
 playButton.addEventListener('click', ()=>{
   countDown = setInterval( function countTimeDown(){ //count down function to start counting from the time set previously and decresing the seconds starting from 59 and when the final time is  00:00 it showes time is up 
-    if (displaySeconds.innerText != 0) {
-      displaySeconds.innerText--;
-    } else if (displayMinutes.innerText != 0 && displaySeconds.innerText == 0) {
-      displaySeconds.innerText = 59;
-      displayMinutes.innerText--;
-      if(displayMinutes.innerText <9){
-        displayMinutes.innerText='0'+displayMinutes.innerText--;
-      };
-    }
-    if (displaySeconds.innerText <= 9 ) {
-      displaySeconds.innerText = '0' + displaySeconds.innerText;
-    }
-    if (displayMinutes.innerText == 0 && displaySeconds.innerText == 0) {
-      displayMinutes.innerText = '00';
-      timeUpText.style.visibility='visible';
-      timeUpText.style.fontSize='35px';
-      timeUpText.style.color='white';
+    if (time.getMinutes() === 0 && time.getSeconds() === 0) {
       clearInterval(countDown);
-      enableButton();
+      resetTimer();
+      timesUp();
+    } else {
+      time.setSeconds(time.getSeconds() - 1);
+      showTime();
     }
-    
   }, 1000);
   disableButtons() ; // call disable function to disable all buttons play button is cliked 
   timeUpText.style.visibility='hidden'; 
@@ -88,14 +92,19 @@ pauseButton.addEventListener('click',()=>{
   enableButton();// call enable function to enable all buttons  when pause button is clicked 
 });
 
+// set event listner and reset function to be fired when the reset button clicked so it reset the count 
+resetButton.addEventListener('click',()=>{
+  resetTimer();
+  clearInterval(countDown);
+  enableButton();
+});
+
 // function to set the buttons to enable or disable  and called on play and pause functions .
 function disableButtons() {
-  playButton.disabled = true;
-  addTimeLength.disabled = true;
-  minusTimeLength.disabled = true;
+  [playButton, addTimeLength, minusTimeLength].forEach(button => button.disabled = true);
 };
 function enableButton(){
-  playButton.disabled=false;
-  addTimeLength.disabled=false;
-  minusTimeLength.disabled=false;
+  [playButton, addTimeLength, minusTimeLength].forEach(button => button.disabled = false);
 }
+
+
