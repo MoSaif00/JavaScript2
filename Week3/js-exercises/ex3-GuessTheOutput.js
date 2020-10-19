@@ -8,7 +8,7 @@ Write out your reasoning in 50 words or less.
 
 */
 
-// The output will alert along with the number 12. Because  inside the local function has the value of a assigned with number 12, and when it returns closure function which has alert method.
+// The output will alert along with the number 12. because a is defined 12 again inside the function so it will change globaly .
 /*
 - Frist a variable declared with type of value number which is 10, after that x is assigned with immediately invoked function .
 - inside the function the value of a will be changed to 12 . and the function will return closure function.
